@@ -11,7 +11,21 @@
     "http"
   ],
   "paths": {
-    "/register": {
+    "/admin/user/index": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/user/create": {
       "post": {
         "description": "",
         "parameters": [
@@ -21,20 +35,33 @@
             "schema": {
               "type": "object",
               "properties": {
-                "useName": {
+                "firstName": {
                   "example": "any"
                 },
-                "passWord": {
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
                   "example": "any"
                 }
               }
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
-    "/login": {
+    "/admin/user/update": {
       "post": {
         "description": "",
         "parameters": [
@@ -44,10 +71,85 @@
             "schema": {
               "type": "object",
               "properties": {
-                "useName": {
+                "id": {
                   "example": "any"
                 },
-                "passWord": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/user/userInfo": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/user/delete": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
                   "example": "any"
                 }
               }
@@ -57,117 +159,152 @@
         "responses": {}
       }
     },
-    "/home": {
+    "/user/index": {
       "get": {
         "description": "",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/admin/api/v1/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/admin/api/v1/product": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/admin/api/v1/cart": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/admin/api/v1/{id}": {
-      "get": {
+    "/user/create": {
+      "post": {
         "description": "",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/api/v1/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/product": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/cart": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/{id}": {
-      "get": {
+    "/user/update": {
+      "post": {
         "description": "",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/user/userInfo": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                },
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/delete": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
       }
     }
   }
